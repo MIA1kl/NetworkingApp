@@ -57,6 +57,20 @@ class FetchTask extends AsyncTask<String, Void, ArrayList<Book>> {
                         JSONObject bookVolumeInfo = bookRecord.getJSONObject("volumeInfo");
                         // Get the title from the volume info
                         String bookTitle = bookVolumeInfo.getString("title");
+
+                        int bookPageCount = 0;
+                        try {
+                        bookPageCount = bookVolumeInfo.getInt("pageCount");
+                        } catch (JSONException ignored) {
+                        }
+
+
+                        String bookPublishedDate = "";
+                        try{
+                        bookPublishedDate = bookVolumeInfo.getString("publishedDate");
+                        } catch (JSONException ignored) {
+                        }
+
                         //------------------------------------------------------------------------------
                         // AUTHORS
                         //------------------------------------------------------------------------------
@@ -86,30 +100,7 @@ class FetchTask extends AsyncTask<String, Void, ArrayList<Book>> {
                             }
                         }
 
-                        JSONArray bookPages = null;
-                        try {
-                            bookPages = bookVolumeInfo.getJSONArray("pages");
-                        } catch (JSONException ignored) {
-                        }
-                        // Convert the authors to a string
-                        String bookPagesString = "";
-                        // If the author is empty, set it as "Unknown"
-                        if (bookPages == null) {
-                            bookPagesString = "Unknown";
-                        } else {
-                            // Format the authors as "author1, author2, and author3"
-                            int countPages = bookPages.length();
-                            for (int e = 0; e < countPages; e++) {
-                                String author = bookPages.getString(e);
-                                if (bookPagesString.isEmpty()) {
-                                    bookPagesString = author;
-                                } else if (e == countPages - 1) {
-                                    bookPagesString = bookPagesString + " and " + author;
-                                } else {
-                                    bookPagesString = bookPagesString + ", " + author;
-                                }
-                            }
-                        }
+
                         //------------------------------------------------------------------------------
                         // IMAGE LINKS
                         //------------------------------------------------------------------------------
@@ -126,7 +117,7 @@ class FetchTask extends AsyncTask<String, Void, ArrayList<Book>> {
                             bookSmallThumbnail = bookImageLinks.getString("smallThumbnail");
                         }
                         // Create a Book object
-                        Book mBook = new Book(bookTitle, bookAuthorsString, bookPagesString, bookSmallThumbnail);
+                        Book mBook = new Book(bookTitle, bookAuthorsString,bookPublishedDate, bookPageCount, bookSmallThumbnail);
                         // Add it to the array
                         parsedResults.add(i, mBook);
                     }
