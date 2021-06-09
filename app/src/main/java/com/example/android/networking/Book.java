@@ -6,6 +6,7 @@ class Book {
     final String authors;
     final String publishedDate;
     final int pageCount;
+    final double averageRating;
     final String smallThumbnailLink;
 
 
@@ -14,6 +15,7 @@ class Book {
             String authors,
             String publishedDate,
             int pageCount,
+            double averageRating,
             String smallThumbnailLink
     ) {
 
@@ -21,6 +23,7 @@ class Book {
         this.authors = authors;
         this.publishedDate = publishedDate;
         this.pageCount = pageCount;
+        this.averageRating = averageRating;
         this.smallThumbnailLink = smallThumbnailLink;
 
     }

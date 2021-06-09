@@ -38,10 +38,12 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
         holder.mTitleView.setText(mValues.get(position).title);
         String authorsString = "by " + mValues.get(position).authors;
         holder.mAuthorsView.setText(authorsString);
-        String publishedDateString = mValues.get(position).publishedDate;
+        String publishedDateString = "Published Date: "+mValues.get(position).publishedDate;
         holder.mPublishedDateView.setText(publishedDateString);
         String pageCountString = mValues.get(position).pageCount +" pages";
         holder.mPageCountView.setText(pageCountString);
+        String averageRatingString = mValues.get(position).averageRating+"";
+        holder.mAverageRatingView.setText(averageRatingString);
         String smallThumbnailLink = mValues.get(position).smallThumbnailLink;
         Picasso.get().load(smallThumbnailLink).into(holder.mBookCoverView);
 
@@ -61,6 +63,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
         public final TextView mAuthorsView;
         public final TextView mPublishedDateView;
         public final TextView mPageCountView;
+        public final TextView mAverageRatingView;
         public final ImageView mBookCoverView;
         public Book mItem;
 
@@ -70,6 +73,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
             mAuthorsView = (TextView) view.findViewById(R.id.authors);
             mPublishedDateView = (TextView) view.findViewById(R.id.publishedDate);
             mPageCountView = (TextView) view.findViewById(R.id.pagesCount);
+            mAverageRatingView = (TextView) view.findViewById(R.id.averageRating);
             mBookCoverView = (ImageView) view.findViewById(R.id.book_cover);
         }
     }

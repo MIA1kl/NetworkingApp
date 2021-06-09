@@ -65,10 +65,18 @@ class FetchTask extends AsyncTask<String, Void, ArrayList<Book>> {
                         }
 
 
+
                         String bookPublishedDate = "";
                         try{
                         bookPublishedDate = bookVolumeInfo.getString("publishedDate");
                         } catch (JSONException ignored) {
+                        }
+
+
+                        double bookAverageRating = 0.0;
+                        try{
+                            bookAverageRating = bookVolumeInfo.getDouble("averageRating");
+                        }catch (JSONException ignored){
                         }
 
                         //------------------------------------------------------------------------------
@@ -117,7 +125,7 @@ class FetchTask extends AsyncTask<String, Void, ArrayList<Book>> {
                             bookSmallThumbnail = bookImageLinks.getString("smallThumbnail");
                         }
                         // Create a Book object
-                        Book mBook = new Book(bookTitle, bookAuthorsString,bookPublishedDate, bookPageCount, bookSmallThumbnail);
+                        Book mBook = new Book(bookTitle, bookAuthorsString,bookPublishedDate, bookPageCount, bookAverageRating, bookSmallThumbnail);
                         // Add it to the array
                         parsedResults.add(i, mBook);
                     }
