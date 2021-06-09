@@ -38,8 +38,10 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
         holder.mTitleView.setText(mValues.get(position).title);
         String authorsString = "by " + mValues.get(position).authors;
         holder.mAuthorsView.setText(authorsString);
+        String pagesString = mValues.get(position).pages +" pages";
+        holder.mPagesView.setText(pagesString);
         String smallThumbnailLink = mValues.get(position).smallThumbnailLink;
-        Picasso.with(mContext).load(smallThumbnailLink).into(holder.mBookCoverView);
+        Picasso.get().load(smallThumbnailLink).into(holder.mBookCoverView);
 
     }
 
@@ -55,6 +57,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView mTitleView;
         public final TextView mAuthorsView;
+        public final TextView mPagesView;
         public final ImageView mBookCoverView;
         public Book mItem;
 
@@ -62,6 +65,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
             super(view);
             mTitleView = (TextView) view.findViewById(R.id.title);
             mAuthorsView = (TextView) view.findViewById(R.id.authors);
+            mPagesView = (TextView) view.findViewById(R.id.pages);
             mBookCoverView = (ImageView) view.findViewById(R.id.book_cover);
         }
     }

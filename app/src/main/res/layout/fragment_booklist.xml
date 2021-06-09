@@ -39,6 +39,13 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceListItem"
                 android:textColor="@color/book_list_authors" />
+
+            <TextView
+                android:id="@+id/pages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/book_list_authors" />
         </LinearLayout>
     </LinearLayout>
 
