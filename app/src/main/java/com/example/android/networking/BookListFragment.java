@@ -51,7 +51,7 @@ public class BookListFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         // Set listeners on input fields and other setups
         final EditText searchField = (EditText) getActivity().findViewById(R.id.search_field);
-        final Spinner maxResultsField = (Spinner) getActivity().findViewById(R.id.max_results_spinner);
+
         // Set the listeners on the SearchField
         searchField.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -63,8 +63,7 @@ public class BookListFragment extends Fragment {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 boolean handled = false;
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    String maxResultsString = maxResultsField.getSelectedItem().toString();
-                    int maxResults = Integer.parseInt(maxResultsString);
+                    int maxResults = 40;
                     searchField.setCursorVisible(false);
                     String searchCriteria = searchField.getText().toString();
                     getBooks(searchCriteria, maxResults);
@@ -81,8 +80,7 @@ public class BookListFragment extends Fragment {
         // Setup the Max Results Spinner
         ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.max_results, R.layout.spinner_max_results);
         adapter.setDropDownViewResource(R.layout.spinner_drop_down_item);
-        maxResultsField.setAdapter(adapter);
-        maxResultsField.setOnItemSelectedListener(new MaxResultsSpinnerListener());
+
     }
 
     /**

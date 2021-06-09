@@ -48,31 +48,7 @@
                         android:layout_marginLeft="@dimen/search_field_right_margin" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spinner_top_margin"
-                    android:layout_weight=".25"
-                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="75dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/book_list_right_margin"
-                        android:contentDescription="@string/empty_results_icon_description"
-                        android:gravity="center_horizontal"
-                        android:text="@string/search_max_results_spinner_label"
-                        android:textColor="@color/book_search_text"
-                        android:textSize="12sp"
-                        android:layout_marginRight="@dimen/book_list_right_margin" />
-
-                    <Spinner
-                        android:id="@+id/max_results_spinner"
-                        android:layout_width="75dp"
-                        android:layout_height="24dp"
-                        android:background="@color/colorPrimary"
-                        android:entries="@array/max_results" />
-                </LinearLayout>
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
