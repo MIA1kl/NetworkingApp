@@ -5,8 +5,8 @@ class Book {
     final String title;
     final String authors;
     final String publishedDate;
-    final int pageCount;
-    final double averageRating;
+    final String pageCount;
+    final String averageRating;
     final String smallThumbnailLink;
 
 
@@ -14,8 +14,8 @@ class Book {
             String title,
             String authors,
             String publishedDate,
-            int pageCount,
-            double averageRating,
+            String pageCount,
+            String averageRating,
             String smallThumbnailLink
     ) {
 
