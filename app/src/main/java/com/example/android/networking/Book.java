@@ -10,6 +10,7 @@ class Book {
     final String smallThumbnailLink;
 
 
+
     public Book(
             String title,
             String authors,

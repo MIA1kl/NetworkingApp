@@ -45,7 +45,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
         String averageRatingString = mValues.get(position).averageRating+"";
         holder.mAverageRatingView.setText(averageRatingString);
         String smallThumbnailLink = mValues.get(position).smallThumbnailLink;
-        Picasso.get().load(smallThumbnailLink).into(holder.mBookCoverView);
+        Picasso.get().load(smallThumbnailLink.replace("http","https")).into(holder.mBookCoverView);
 
     }
 
